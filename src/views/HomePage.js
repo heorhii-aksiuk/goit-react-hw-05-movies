@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import Header from '../../components/Header';
-import Section from '../../components/Section';
+import Header from '../components/Header/Header';
+import Section from '../components/Section/Section';
 
 function HomePage(props) {
   return (
