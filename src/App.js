@@ -1,5 +1,11 @@
+import HomePage from './views/HomePage/HomePage';
+
 function App() {
-  return <div>React App Template</div>;
+  return (
+    <>
+      <HomePage></HomePage>
+    </>
+  );
 }
 
 export default App;
