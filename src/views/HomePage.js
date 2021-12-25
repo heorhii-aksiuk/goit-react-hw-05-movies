@@ -9,7 +9,7 @@ function HomePage() {
   useEffect(() => {
     fetchAPI('/trending/movie/day').then(setTrendingMovies);
   }, []);
-  console.log(trendingMovies);
+
   return (
     <div>
       <Section title="Trending today">
