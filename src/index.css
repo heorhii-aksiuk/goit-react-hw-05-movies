@@ -1,8 +1,9 @@
 :root {
   --main-font: 'Roboto', sans-serif;
   --main-text-color: #212121;
-  --second-text-color: #ffffff;
-  --active-link-color: #6062d4;
+  --second-text-color: #f1f1f1;
+  --active-link-color: #333333;
+  --logo-color: #313131;
   --body-background-color: #d9dae0;
   --main-background-color: #ffffff;
   --header-background-color: #84b338;

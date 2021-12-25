@@ -5,6 +5,20 @@
   box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.5);
 }
 
+.logo {
+  margin-right: 50px;
+  text-shadow: 2px 3px 1px rgba(71, 71, 71, 0.3);
+}
+
+.svg {
+  height: 22px;
+  width: 22px;
+}
+.logoText {
+  color: var(--logo-color);
+  font-size: 22px;
+}
+
 .navigation {
   margin: 0 auto;
   padding-top: 20px;
@@ -12,11 +26,13 @@
 }
 
 .link {
-  margin-right: 10px;
+  margin-right: 20px;
+  padding-bottom: 13px;
   color: var(--second-text-color);
 }
 
 .activeLink {
-  font-weight: 700;
   color: var(--active-link-color);
+  text-shadow: 1px 2px 1px rgba(71, 71, 71, 0.3);
+  border-bottom: 2px solid black;
 }
