@@ -6,7 +6,7 @@ function MoviePage() {
   return (
     <div>
       <Section>
-        <h1>MoviePage test</h1>
+        <h1>MoviePage</h1>
       </Section>
     </div>
   );
