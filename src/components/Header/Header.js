@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { GiFilmStrip } from 'react-icons/gi';
 import s from './Header.module.css';
-// import PropTypes from 'prop-types';
 
 function Header() {
   return (
@@ -22,7 +21,5 @@ function Header() {
     </header>
   );
 }
-
-// Header.propTypes = {};
 
 export default Header;

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
-// import PropTypes from 'prop-types';
 import Section from '../components/Section/Section';
 import MoviesList from '../components/MoviesList/MoviesList';
-
 import fetchAPI from '../services/fetchAPI';
 
 function HomePage() {
@@ -12,9 +9,7 @@ function HomePage() {
   useEffect(() => {
     fetchAPI('/trending/movie/day').then(setTrendingMovies);
   }, []);
-
   console.log(trendingMovies);
-
   return (
     <div>
       <Section title="Trending today">
@@ -23,7 +18,5 @@ function HomePage() {
     </div>
   );
 }
-
-// HomePage.propTypes = {};
 
 export default HomePage;

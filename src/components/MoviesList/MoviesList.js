@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './MovieList.module.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function MoviesList({ movies }) {
   console.log(movies);
@@ -20,8 +20,13 @@ function MoviesList({ movies }) {
   );
 }
 
-// MoviesList.propTypes = {
-//   movies:
-// };
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      original_title: PropTypes.string.isRequired,
+    }),
+  ),
+};
 
 export default MoviesList;
