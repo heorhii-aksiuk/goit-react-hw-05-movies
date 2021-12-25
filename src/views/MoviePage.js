@@ -5,9 +5,7 @@ import Section from '../components/Section/Section';
 function MoviePage() {
   return (
     <div>
-      <Section>
-        <h1>MoviePage</h1>
-      </Section>
+      <Section title="MoviePage"></Section>
     </div>
   );
 }

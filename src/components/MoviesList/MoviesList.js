@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import s from './MovieList.module.css';
 // import PropTypes from 'prop-types';
 
 function MoviesList({ movies }) {
@@ -8,8 +9,10 @@ function MoviesList({ movies }) {
     movies && (
       <ul>
         {movies.map(movie => (
-          <li key={movie.id}>
-            <NavLink to={`/movies/${movie.id}`}>{movie.original_title}</NavLink>
+          <li key={movie.id} className={s.item}>
+            <NavLink to={`/movies/${movie.id}`} className={s.link}>
+              {movie.original_title}
+            </NavLink>
           </li>
         ))}
       </ul>

@@ -17,8 +17,7 @@ function HomePage() {
 
   return (
     <div>
-      <Section>
-        <h1>HomePage</h1>
+      <Section title="Trending today">
         <MoviesList movies={trendingMovies} />
       </Section>
     </div>
