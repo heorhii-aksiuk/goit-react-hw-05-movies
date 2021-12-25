@@ -11,11 +11,11 @@ function HomePage() {
   }, []);
 
   return (
-    <div>
+    <>
       <Section title="Trending today">
         <MoviesList movies={trendingMovies} />
       </Section>
-    </div>
+    </>
   );
 }
 
