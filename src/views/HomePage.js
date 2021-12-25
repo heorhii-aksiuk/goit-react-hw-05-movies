@@ -1,17 +1,17 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import Header from '../components/Header/Header';
 import Section from '../components/Section/Section';
 
-function HomePage(props) {
+function HomePage() {
   return (
     <div>
-      <Header></Header>
-      <Section></Section>
+      <Section>
+        <h1>HomePage test</h1>
+      </Section>
     </div>
   );
 }
 
-HomePage.propTypes = {};
+// HomePage.propTypes = {};
 
 export default HomePage;

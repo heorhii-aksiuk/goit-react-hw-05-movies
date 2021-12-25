@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { GiFilmStrip } from 'react-icons/gi';
 import s from './Header.module.css';
-
 // import PropTypes from 'prop-types';
 
 function Header() {
@@ -24,6 +23,6 @@ function Header() {
   );
 }
 
-Header.propTypes = {};
+// Header.propTypes = {};
 
 export default Header;

@@ -1,17 +1,17 @@
 import React from 'react';
-import Header from '../components/Header/Header';
 import Section from '../components/Section/Section';
 // import PropTypes from 'prop-types'
 
-function MoviePage(props) {
+function MoviePage() {
   return (
     <div>
-      <Header></Header>
-      <Section></Section>
+      <Section>
+        <h1>MoviePage test</h1>
+      </Section>
     </div>
   );
 }
 
-MoviePage.propTypes = {};
+// MoviePage.propTypes = {};
 
 export default MoviePage;
