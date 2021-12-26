@@ -1,7 +1,8 @@
 import React from 'react';
+import Section from '../components/Section/Section';
 
 function NodFoundPage() {
-  return <h2>404 Страница не найдена</h2>;
+  return <Section title="404 Страница не найдена :(" />;
 }
 
 export default NodFoundPage;

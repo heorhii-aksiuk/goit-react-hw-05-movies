@@ -1,15 +1,17 @@
 import React from 'react';
 import Section from '../components/Section/Section';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-function MoviePage() {
+function MoviePage({ children }) {
   return (
     <div>
-      <Section title="MoviePage"></Section>
+      <Section title="MoviePage">{children}</Section>
     </div>
   );
 }
 
-// MoviePage.propTypes = {};
+MoviePage.propTypes = {
+  children: PropTypes.element,
+};
 
 export default MoviePage;

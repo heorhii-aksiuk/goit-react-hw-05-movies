@@ -5,7 +5,8 @@ async function fetchAPI(query) {
   const request = await fetch(`${BASE_URL}${query}?api_key=${API_KEY}`);
   const response = await request.json();
   const { results } = response;
-  return results;
+
+  return results ?? response;
 }
 
 export default fetchAPI;
