@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function MoviePage({ children }) {
   return (
     <div>
-      <Section title="MoviePage">{children}</Section>
+      <Section title="Search your movie">{children}</Section>
     </div>
   );
 }

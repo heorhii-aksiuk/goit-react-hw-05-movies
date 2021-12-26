@@ -21,7 +21,7 @@ function MovieCard() {
         </div>
         <div>
           <h3>{movie.title}</h3>
-          <h4>"{movie.tagline}"</h4>
+          <h4>{movie.tagline}</h4>
           <ul>
             <li>Vote: {movie.vote_average}/10</li>
             <li>Votes: {movie.vote_count}</li>
@@ -30,10 +30,10 @@ function MovieCard() {
               Runtime: {Math.floor(movie.runtime / 60)}:{movie.runtime % 60}
             </li>
           </ul>
-          <h4>Discription: </h4>
+          <h4>Overview</h4>
           <p>{movie.overview}</p>
           <ul>
-            Genres:
+            Genres
             {movie.genres.map(genre => {
               return <li>{genre.name}</li>;
             })}
