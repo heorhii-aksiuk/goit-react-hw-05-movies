@@ -13,23 +13,32 @@ function MovieCard() {
   return (
     movie && (
       <div>
-        <img
-          src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
-          alt=""
-        />
-        <h3>{movie.title}</h3>
-        <p>tagline: {movie.tagline}</p>
-        <p>release_date: {movie.release_date}</p>
-        <p>vote_average: {movie.vote_average}</p>
-        <p>vote_count: {movie.vote_count}</p>
-        <p>runtime: {movie.runtime}</p>
-        <p>discription: {movie.overview}</p>
-        <ul>
-          genres:
-          {movie.genres.map(genre => {
-            return <li>{genre.name}</li>;
-          })}
-        </ul>
+        <div>
+          <img
+            src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
+            alt=""
+          />
+        </div>
+        <div>
+          <h3>{movie.title}</h3>
+          <h4>"{movie.tagline}"</h4>
+          <ul>
+            <li>Vote: {movie.vote_average}/10</li>
+            <li>Votes: {movie.vote_count}</li>
+            <li>Release date: {movie.release_date}</li>
+            <li>
+              Runtime: {Math.floor(movie.runtime / 60)}:{movie.runtime % 60}
+            </li>
+          </ul>
+          <h4>Discription: </h4>
+          <p>{movie.overview}</p>
+          <ul>
+            Genres:
+            {movie.genres.map(genre => {
+              return <li>{genre.name}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     )
   );
