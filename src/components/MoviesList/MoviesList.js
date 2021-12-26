@@ -10,7 +10,7 @@ function MoviesList({ movies }) {
         {movies.map(movie => (
           <li key={movie.id} className={s.item}>
             <Link to={`/movies/${movie.id}`} className={s.link}>
-              {movie.original_title}
+              {movie.title}
             </Link>
           </li>
         ))}
