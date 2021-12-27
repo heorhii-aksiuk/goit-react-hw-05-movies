@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import PropTypes from 'prop-types';
 
 function SearchBar({ onSubmitGet }) {
@@ -11,7 +10,7 @@ function SearchBar({ onSubmitGet }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    return onSubmitGet(value);
+    onSubmitGet(value);
   }
 
   return (
