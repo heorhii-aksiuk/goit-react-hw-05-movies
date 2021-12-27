@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import HomePage from './views/HomePage';
 import MoviePage from './views/MoviePage';
-import SearchBar from './components/SearchBar/SearchBar';
 import MovieDetailsPage from './views/MovieDetailsPage';
 import MovieCard from './components/MovieCard/MovieCard';
 import NodFoundPage from './views/NodFoundPage';
@@ -18,9 +17,7 @@ function App() {
         </Route>
 
         <Route exact path="/movies">
-          <MoviePage>
-            <SearchBar />
-          </MoviePage>
+          <MoviePage />
         </Route>
 
         <Route exact path="/movies/:movieId">
