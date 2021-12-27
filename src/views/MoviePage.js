@@ -4,8 +4,6 @@ import Section from '../components/Section/Section';
 import MoviesList from '../components/MoviesList/MoviesList';
 import fetchAPI from '../services/fetchAPI';
 
-// import PropTypes from 'prop-types';
-
 function MoviePage() {
   const [inputValue, setInputValue] = useState('');
   const [searchedMovies, setSearchedMovies] = useState(null);
@@ -28,9 +26,5 @@ function MoviePage() {
     </div>
   );
 }
-
-// MoviePage.propTypes = {
-//   children: PropTypes.element,
-// };
 
 export default MoviePage;
