@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { NavLink, useRouteMatch, Route } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import fetchAPI from '../../services/fetchAPI';
+import Cast from '../../components/Cast/Cast';
+import Reviews from '../../components/Reviews/Reviews';
 
 function MovieCard() {
   const { movieId } = useParams();
@@ -52,6 +54,13 @@ function MovieCard() {
             </li>
           </ul>
         </div>
+
+        <Route path="/movies/:movieId/cast">
+          <Cast movieId={movieId} />
+        </Route>
+        <Route path="/movies/:movieId/reviews">
+          <Reviews movieId={movieId} />
+        </Route>
       </div>
     )
   );
