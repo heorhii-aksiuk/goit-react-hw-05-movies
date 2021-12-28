@@ -14,7 +14,7 @@ function MoviePage() {
 
   useEffect(() => {
     if (!inputValue) return;
-    fetchAPI('/search/movie/', `${inputValue}`).then(setSearchedMovies);
+    fetchAPI('/search/movie', `${inputValue}`).then(setSearchedMovies);
   }, [inputValue]);
 
   return (
