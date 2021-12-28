@@ -13,7 +13,6 @@ function Cast({ movieId }) {
       .then(setCast);
   }, [movieId]);
 
-  console.log(cast);
   return (
     cast && (
       <div>

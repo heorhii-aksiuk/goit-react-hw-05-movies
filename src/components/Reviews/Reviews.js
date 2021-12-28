@@ -23,7 +23,7 @@ function Reviews({ movieId }) {
       </ul>
     </div>
   ) : (
-    <h4>There aren't any reviews yet</h4>
+    <h4>There aren't anyreviews yet</h4>
   );
 }
 
