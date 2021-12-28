@@ -5,6 +5,8 @@ import HomePage from './views/HomePage';
 import MoviePage from './views/MoviePage';
 import MovieDetailsPage from './views/MovieDetailsPage';
 import MovieCard from './components/MovieCard/MovieCard';
+import Cast from './components/Cast/Cast';
+import Reviews from './components/Reviews/Reviews';
 import NodFoundPage from './views/NodFoundPage';
 
 function App() {
@@ -20,9 +22,15 @@ function App() {
           <MoviePage />
         </Route>
 
-        <Route exact path="/movies/:movieId">
+        <Route path="/movies/:movieId">
           <MovieDetailsPage>
             <MovieCard />
+            <Route path="/movies/:movieId/cast">
+              <Cast />
+            </Route>
+            <Route path="/movies/:movieId/reviews">
+              <Reviews />
+            </Route>
           </MovieDetailsPage>
         </Route>
 
