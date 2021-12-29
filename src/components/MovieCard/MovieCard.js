@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useRouteMatch, Route } from 'react-router-dom';
+import { NavLink, useRouteMatch, Route, useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import fetchAPI from '../../services/fetchAPI';
 import Cast from '../../components/Cast/Cast';
@@ -8,6 +8,7 @@ import Reviews from '../../components/Reviews/Reviews';
 function MovieCard() {
   const { movieId } = useParams();
   const { url } = useRouteMatch();
+  const { goBack } = useHistory();
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -17,6 +18,9 @@ function MovieCard() {
   return (
     movie && (
       <div>
+        <button onClick={goBack} type="button">
+          Go back
+        </button>
         <div>
           <img
             src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
