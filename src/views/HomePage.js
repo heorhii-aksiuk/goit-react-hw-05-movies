@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Section from '../components/Section/Section';
 import MoviesList from '../components/MoviesList/MoviesList';
+import Loader from '../components/Loader/Loader';
 import fetchAPI from '../services/fetchAPI';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../services/stateMachine';
 
@@ -27,7 +28,7 @@ function HomePage() {
       <Section title="Trending today">
         {status === RESOLVED && <MoviesList movies={trendingMovies} />}
         {status === IDLE && <p>IDLE</p>}
-        {status === PENDING && <p>PENDING</p>}
+        {status === PENDING && <Loader />}
         {status === REJECTED && <p>{error.message}</p>}
       </Section>
     </>

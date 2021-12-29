@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import Loader from './components/Loader/Loader';
 import { Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar/AppBar';
 import MovieCard from './components/MovieCard/MovieCard';
@@ -19,7 +20,7 @@ function App() {
   return (
     <>
       <AppBar />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <Route exact path="/">
             <HomePage />
