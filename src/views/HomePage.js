@@ -6,28 +6,28 @@ import { IDLE, PENDING, RESOLVED, REJECTED } from '../services/stateMachine';
 
 function HomePage() {
   const [status, setStatus] = useState(IDLE);
-  const [trendingMovies, setTrendingMovies] = useState(null);
   const [error, setError] = useState(null);
+  const [trendingMovies, setTrendingMovies] = useState(null);
 
   useEffect(() => {
     setStatus(PENDING);
     fetchAPI('/trending/movie/day')
       .then(response => {
-        setStatus(RESOLVED);
         setTrendingMovies(response);
+        setStatus(RESOLVED);
       })
       .catch(error => {
-        setStatus(REJECTED);
         setError(error);
+        setStatus(REJECTED);
       });
   }, []);
 
   return (
     <>
       <Section title="Trending today">
+        {status === RESOLVED && <MoviesList movies={trendingMovies} />}
         {status === IDLE && <p>IDLE</p>}
         {status === PENDING && <p>PENDING</p>}
-        {status === RESOLVED && <MoviesList movies={trendingMovies} />}
         {status === REJECTED && <p>{error.message}</p>}
       </Section>
     </>

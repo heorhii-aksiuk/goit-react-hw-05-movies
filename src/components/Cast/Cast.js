@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import fetchAPI from '../../services/fetchAPI';
 import PropTypes from 'prop-types';
+import fetchAPI from '../../services/fetchAPI';
+import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
 
 function Cast({ movieId }) {
+  const [status, setStatus] = useState(IDLE);
+  const [error, setError] = useState(null);
   const [cast, setCast] = useState(null);
 
   useEffect(() => {
+    setStatus(PENDING);
     fetchAPI(`/movie/${movieId}/credits`)
       .then(credits => {
         return credits.cast;
       })
-      .then(setCast);
+      .then(response => {
+        setCast(response);
+        setStatus(RESOLVED);
+      })
+      .catch(error => {
+        setError(error);
+        setStatus(REJECTED);
+      });
   }, [movieId]);
 
   return (
-    cast && (
-      <div>
+    <div>
+      {status === RESOLVED && (
         <ul>
           {cast.map(actor => {
             return (
@@ -32,8 +43,11 @@ function Cast({ movieId }) {
             );
           })}
         </ul>
-      </div>
-    )
+      )}
+      {status === IDLE && <p>IDLE</p>}
+      {status === PENDING && <p>PENDING</p>}
+      {status === REJECTED && <p>{error.message}</p>}
+    </div>
   );
 }
 

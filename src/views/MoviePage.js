@@ -3,8 +3,11 @@ import SearchBar from '../components/SearchBar/SearchBar';
 import Section from '../components/Section/Section';
 import MoviesList from '../components/MoviesList/MoviesList';
 import fetchAPI from '../services/fetchAPI';
+import { IDLE, PENDING, RESOLVED, REJECTED } from '../services/stateMachine';
 
 function MoviePage() {
+  const [status, setStatus] = useState(IDLE);
+  const [error, setError] = useState(null);
   const [inputValue, setInputValue] = useState('');
   const [searchedMovies, setSearchedMovies] = useState(null);
 
@@ -14,14 +17,26 @@ function MoviePage() {
 
   useEffect(() => {
     if (!inputValue) return;
-    fetchAPI('/search/movie', `${inputValue}`).then(setSearchedMovies);
+    setStatus(PENDING);
+    fetchAPI('/search/movie', `${inputValue}`)
+      .then(response => {
+        setSearchedMovies(response);
+        setStatus(RESOLVED);
+      })
+      .catch(error => {
+        setError(error);
+        setStatus(REJECTED);
+      });
   }, [inputValue]);
 
   return (
     <div>
       <Section title="Search your movie">
         <SearchBar onSubmitGet={getSubmitValue} />
-        <MoviesList movies={searchedMovies} />
+        {status === RESOLVED && <MoviesList movies={searchedMovies} />}
+        {status === IDLE && <p>IDLE</p>}
+        {status === PENDING && <p>PENDING</p>}
+        {status === REJECTED && <p>{error.message}</p>}
       </Section>
     </div>
   );
