@@ -17,13 +17,14 @@ function MovieCard() {
   const history = useHistory();
   const location = useLocation();
   const [movie, setMovie] = useState(null);
+  const [prevLocation] = useState(location?.state?.from);
 
   useEffect(() => {
     fetchAPI(`/movie/${movieId}`).then(setMovie);
   }, [movieId]);
 
   function goBack() {
-    history.push(location?.state?.from ?? '/movies');
+    history.push(prevLocation ?? '/');
   }
 
   return (
