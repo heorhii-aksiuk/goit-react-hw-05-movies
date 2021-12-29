@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { GiFilmStrip } from 'react-icons/gi';
-import s from './Header.module.css';
+import s from './AppBar.module.css';
 
-function Header() {
+function AppBar() {
   return (
     <header className={s.header}>
       <nav className={s.navigation}>
@@ -22,4 +22,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default AppBar;

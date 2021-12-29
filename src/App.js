@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
+import AppBar from './components/AppBar/AppBar';
 import MovieCard from './components/MovieCard/MovieCard';
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "HomePage" */),
@@ -18,7 +18,7 @@ const NodFoundPage = lazy(() =>
 function App() {
   return (
     <>
-      <Header />
+      <AppBar />
       <Suspense fallback={<p>Loading...</p>}>
         <Switch>
           <Route exact path="/">
