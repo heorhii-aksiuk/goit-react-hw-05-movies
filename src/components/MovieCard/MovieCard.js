@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useRouteMatch, Route, useHistory } from 'react-router-dom';
+import {
+  NavLink,
+  useRouteMatch,
+  Route,
+  useHistory,
+  useLocation,
+} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import fetchAPI from '../../services/fetchAPI';
 import Cast from '../../components/Cast/Cast';
@@ -8,12 +14,17 @@ import Reviews from '../../components/Reviews/Reviews';
 function MovieCard() {
   const { movieId } = useParams();
   const { url } = useRouteMatch();
-  const { goBack } = useHistory();
+  const history = useHistory();
+  const location = useLocation();
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     fetchAPI(`/movie/${movieId}`).then(setMovie);
   }, [movieId]);
+
+  function goBack() {
+    history.push(location?.state?.from ?? '/movies');
+  }
 
   return (
     movie && (
