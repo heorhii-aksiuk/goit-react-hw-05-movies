@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Loader from '../components/Loader/Loader';
 import Section from '../components/Section/Section';
 import MoviesList from '../components/MoviesList/MoviesList';
-import Loader from '../components/Loader/Loader';
 import fetchAPI from '../services/fetchAPI';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../services/stateMachine';
 
