@@ -7,9 +7,10 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import fetchAPI from '../../services/fetchAPI';
+import Loader from '../../components/Loader/Loader';
 import Cast from '../../components/Cast/Cast';
 import Reviews from '../../components/Reviews/Reviews';
+import fetchAPI from '../../services/fetchAPI';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
 
 function MovieCard() {
@@ -39,6 +40,14 @@ function MovieCard() {
     history.push(prevLocation ?? '/');
   }
 
+  function getMovieRuntime() {
+    if (movie) {
+      const hours = String(Math.floor(movie.runtime / 60));
+      const minutes = String(movie.runtime % 60).padStart(2, '0');
+      return `${hours}:${minutes}`;
+    }
+  }
+
   return (
     <div>
       {status === RESOLVED && (
@@ -59,9 +68,7 @@ function MovieCard() {
               <li>Vote: {movie.vote_average}/10</li>
               <li>Votes: {movie.vote_count}</li>
               <li>Release date: {movie.release_date}</li>
-              <li>
-                Runtime: {Math.floor(movie.runtime / 60)}:{movie.runtime % 60}
-              </li>
+              <li>Runtime: {getMovieRuntime()}</li>
             </ul>
             <h4>Overview</h4>
             <p>{movie.overview}</p>
@@ -92,8 +99,7 @@ function MovieCard() {
           </Route>
         </>
       )}
-      {status === IDLE && <p>IDLE</p>}
-      {status === PENDING && <p>PENDING</p>}
+      {status === PENDING && <Loader />}
       {status === REJECTED && <p>{error.message}</p>}
     </div>
   );

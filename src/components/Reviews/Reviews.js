@@ -51,6 +51,3 @@ Reviews.propTypes = {
 };
 
 export default Reviews;
-
-// reviews ? () : (
-//     <h4>There aren't anyreviews yet</h4>)
