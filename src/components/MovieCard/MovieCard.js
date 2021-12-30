@@ -51,11 +51,11 @@ function MovieCard() {
 
   return (
     <div>
+      <button onClick={goBack} type="button">
+        Go back
+      </button>
       {status === RESOLVED && (
         <>
-          <button onClick={goBack} type="button">
-            Go back
-          </button>
           <div>
             <img
               src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
