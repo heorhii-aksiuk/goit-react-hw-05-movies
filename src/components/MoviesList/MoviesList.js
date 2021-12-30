@@ -5,24 +5,24 @@ import s from './MovieList.module.css';
 
 function MoviesList({ movies }) {
   const location = useLocation();
-  return (
-    movies && (
-      <ul>
-        {movies.map(movie => (
-          <li key={movie.id} className={s.item}>
-            <Link
-              to={{
-                pathname: `/movies/${movie.id}`,
-                state: { from: location },
-              }}
-              className={s.link}
-            >
-              {movie.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    )
+  return movies ? (
+    <ul>
+      {movies.map(movie => (
+        <li key={movie.id} className={s.item}>
+          <Link
+            to={{
+              pathname: `/movies/${movie.id}`,
+              state: { from: location },
+            }}
+            className={s.link}
+          >
+            {movie.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>Error tost must be here</p>
   );
 }
 

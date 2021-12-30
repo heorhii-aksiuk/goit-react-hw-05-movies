@@ -2,15 +2,22 @@ const API_KEY = 'c686fd0cacddd11fd41af6fdd62727e4';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 async function fetchAPI(query, searchQuery = '') {
-  const request = await fetch(
-    `${BASE_URL}${query}?api_key=${API_KEY}${
-      !searchQuery ? '' : `&query=${searchQuery}`
-    }`,
-  );
-  const response = await request.json();
-  const { results } = response;
+  try {
+    const request = await fetch(
+      `${BASE_URL}${query}?api_key=${API_KEY}${
+        !searchQuery ? '' : `&query=${searchQuery}`
+      }`,
+    );
 
-  return results ?? response;
+    if (request.status !== 200) throw Error(`${request.status}`);
+
+    const response = await request.json();
+    const { results } = response;
+
+    return results ?? response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export default fetchAPI;
