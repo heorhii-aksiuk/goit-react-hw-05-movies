@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from '../components/Section/Section';
 import PropTypes from 'prop-types';
+import Section from '../components/Section/Section';
 
 function MovieDetailsPage({ children }) {
   return (
