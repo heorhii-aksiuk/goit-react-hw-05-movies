@@ -4,6 +4,7 @@ import Section from '../components/Section/Section';
 import MoviesList from '../components/MoviesList/MoviesList';
 import fetchAPI from '../services/fetchAPI';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../services/stateMachine';
+import Loader from '../components/Loader/Loader';
 
 function MoviePage() {
   const [status, setStatus] = useState(IDLE);
@@ -35,7 +36,7 @@ function MoviePage() {
         <SearchBar onSubmitGet={getSubmitValue} />
         {status === RESOLVED && <MoviesList movies={searchedMovies} />}
         {status === IDLE && <p>IDLE</p>}
-        {status === PENDING && <p>PENDING</p>}
+        {status === PENDING && <Loader />}
         {status === REJECTED && <p>{error.message}</p>}
       </Section>
     </div>

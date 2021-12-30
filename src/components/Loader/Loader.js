@@ -13,11 +13,17 @@ function Loader() {
   }, []);
 
   return (
-    <div className={s.container}>
-      {loaderTimeOut && (
-        <Spinner type="Oval" color="#00BFFF" height={150} width={150} />
-      )}
-    </div>
+    loaderTimeOut && (
+      <div className={s.container}>
+        <Spinner
+          type="Oval"
+          color="#00BFFF"
+          height={150}
+          width={150}
+          arialLabel="loading-indicator"
+        />
+      </div>
+    )
   );
 }
 
