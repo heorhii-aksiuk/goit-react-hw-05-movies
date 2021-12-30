@@ -9,12 +9,14 @@ async function fetchAPI(query, searchQuery = '') {
       }`,
     );
 
-    if (request.status >= 400) throw Error(`${request.status}`);
+    if (request.status >= 400) {
+      throw Error(`${request.status}`);
+    } else {
+      const response = await request.json();
+      const { results } = response;
 
-    const response = await request.json();
-    const { results } = response;
-
-    return results ?? response;
+      return results ?? response;
+    }
   } catch (error) {
     console.log(error);
   }

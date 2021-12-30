@@ -14,6 +14,7 @@ function HomePage() {
     setStatus(PENDING);
     fetchAPI('/trending/movie/day')
       .then(response => {
+        if (!response) throw Error('Oops...something went wrong :(');
         setTrendingMovies(response);
         setStatus(RESOLVED);
       })
