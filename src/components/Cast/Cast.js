@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Loader from '../Loader/Loader';
 import fetchAPI from '../../services/fetchAPI';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
 
@@ -45,7 +46,7 @@ function Cast({ movieId }) {
         </ul>
       )}
       {status === IDLE && <p>IDLE</p>}
-      {status === PENDING && <p>PENDING</p>}
+      {status === PENDING && <Loader />}
       {status === REJECTED && <p>{error.message}</p>}
     </div>
   );

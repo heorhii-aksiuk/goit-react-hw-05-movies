@@ -1,29 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import fetchAPI from '../../services/fetchAPI';
 import PropTypes from 'prop-types';
+import Loader from '../Loader/Loader';
+import fetchAPI from '../../services/fetchAPI';
+import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
 
 function Reviews({ movieId }) {
+  const [status, setStatus] = useState(IDLE);
+  const [error, setError] = useState(null);
   const [reviews, setReviews] = useState(null);
 
   useEffect(() => {
-    fetchAPI(`/movie/${movieId}/reviews`).then(setReviews);
+    setStatus(PENDING);
+    fetchAPI(`/movie/${movieId}/reviews`)
+      .then(response => {
+        setReviews(response);
+        setStatus(RESOLVED);
+      })
+      .catch(error => {
+        setError(error);
+        setStatus(REJECTED);
+      });
   }, [movieId]);
 
-  return reviews ? (
+  return (
     <div>
-      <ul>
-        {reviews.map(review => {
-          return (
-            <li key={review.author}>
-              <h4>{review.author}</h4>
-              <p>{review.content}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {status === RESOLVED &&
+        (reviews ? (
+          <ul>
+            {reviews.map(review => {
+              return (
+                <li key={review.id}>
+                  <h4>{review.author}</h4>
+                  <p>{review.content}</p>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <h4>There aren't anyreviews yet</h4>
+        ))}
+      {status === IDLE && <p>IDLE</p>}
+      {status === PENDING && <Loader />}
+      {status === REJECTED && <p>{error.message}</p>}
     </div>
-  ) : (
-    <h4>There aren't anyreviews yet</h4>
   );
 }
 
@@ -32,3 +51,6 @@ Reviews.propTypes = {
 };
 
 export default Reviews;
+
+// reviews ? () : (
+//     <h4>There aren't anyreviews yet</h4>)
