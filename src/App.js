@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import Loader from './components/Loader/Loader';
 import { Switch, Route } from 'react-router-dom';
+import Loader from './components/Loader/Loader';
 import AppBar from './components/AppBar/AppBar';
 import MovieCard from './components/MovieCard/MovieCard';
 const HomePage = lazy(() =>
