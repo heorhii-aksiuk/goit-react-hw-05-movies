@@ -35,7 +35,9 @@ function MoviePage() {
       <Section title="Search your movie">
         <SearchBar onSubmitGet={getSubmitValue} />
         {status === RESOLVED && <MoviesList movies={searchedMovies} />}
-        {status === IDLE && <p>IDLE</p>}
+        {status === IDLE && (
+          <p>Use part or full movie title for search query</p>
+        )}
         {status === PENDING && <Loader />}
         {status === REJECTED && <p>{error.message}</p>}
       </Section>

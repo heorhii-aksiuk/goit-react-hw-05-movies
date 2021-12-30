@@ -8,6 +8,7 @@ function Reviews({ movieId }) {
   const [status, setStatus] = useState(IDLE);
   const [error, setError] = useState(null);
   const [reviews, setReviews] = useState(null);
+  const reviewsCheck = reviews && reviews.length > 0;
 
   useEffect(() => {
     setStatus(PENDING);
@@ -25,7 +26,7 @@ function Reviews({ movieId }) {
   return (
     <div>
       {status === RESOLVED &&
-        (reviews ? (
+        (reviewsCheck ? (
           <ul>
             {reviews.map(review => {
               return (
@@ -37,9 +38,8 @@ function Reviews({ movieId }) {
             })}
           </ul>
         ) : (
-          <h4>There aren't anyreviews yet</h4>
+          <h4>There aren't any reviews yet</h4>
         ))}
-      {status === IDLE && <p>IDLE</p>}
       {status === PENDING && <Loader />}
       {status === REJECTED && <p>{error.message}</p>}
     </div>

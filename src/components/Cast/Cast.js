@@ -45,7 +45,6 @@ function Cast({ movieId }) {
           })}
         </ul>
       )}
-      {status === IDLE && <p>IDLE</p>}
       {status === PENDING && <Loader />}
       {status === REJECTED && <p>{error.message}</p>}
     </div>
