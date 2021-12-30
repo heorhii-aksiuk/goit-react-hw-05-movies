@@ -28,7 +28,6 @@ function HomePage() {
     <>
       <Section title="Trending today">
         {status === RESOLVED && <MoviesList movies={trendingMovies} />}
-        {status === IDLE && <p>IDLE</p>}
         {status === PENDING && <Loader />}
         {status === REJECTED && <p>{error.message}</p>}
       </Section>
