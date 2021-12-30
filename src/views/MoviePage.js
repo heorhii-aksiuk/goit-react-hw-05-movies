@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import SearchBar from '../components/SearchBar/SearchBar';
-import Section from '../components/Section/Section';
-import MoviesList from '../components/MoviesList/MoviesList';
 import Loader from '../components/Loader/Loader';
+import Section from '../components/Section/Section';
+import SearchBar from '../components/SearchBar/SearchBar';
+import MoviesList from '../components/MoviesList/MoviesList';
 import fetchAPI from '../services/fetchAPI';
 import { IDLE, PENDING, RESOLVED, REJECTED } from '../services/stateMachine';
 
