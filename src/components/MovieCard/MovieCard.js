@@ -27,6 +27,7 @@ function MovieCard() {
     setStatus(PENDING);
     fetchAPI(`/movie/${movieId}`)
       .then(response => {
+        if (!response) throw Error('Oops...something went wrong :(');
         setMovie(response);
         setStatus(RESOLVED);
       })

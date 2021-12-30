@@ -21,6 +21,7 @@ function MoviePage() {
     setStatus(PENDING);
     fetchAPI('/search/movie', `${inputValue}`)
       .then(response => {
+        if (!response) throw Error('Oops...something went wrong :(');
         setSearchedMovies(response);
         setStatus(RESOLVED);
       })

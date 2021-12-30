@@ -13,6 +13,7 @@ function Cast({ movieId }) {
     setStatus(PENDING);
     fetchAPI(`/movie/${movieId}/credits`)
       .then(credits => {
+        if (!credits) throw Error('Oops...something went wrong :(');
         return credits.cast;
       })
       .then(response => {

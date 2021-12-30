@@ -14,6 +14,7 @@ function Reviews({ movieId }) {
     setStatus(PENDING);
     fetchAPI(`/movie/${movieId}/reviews`)
       .then(response => {
+        if (!response) throw Error('Oops...something went wrong :(');
         setReviews(response);
         setStatus(RESOLVED);
       })
