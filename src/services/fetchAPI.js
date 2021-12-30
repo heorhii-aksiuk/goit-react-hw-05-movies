@@ -9,7 +9,7 @@ async function fetchAPI(query, searchQuery = '') {
       }`,
     );
 
-    if (request.status !== 200) throw Error(`${request.status}`);
+    if (request.status >= 400) throw Error(`${request.status}`);
 
     const response = await request.json();
     const { results } = response;
