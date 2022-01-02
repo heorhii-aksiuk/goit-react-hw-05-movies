@@ -17,7 +17,7 @@ function Loader() {
       <div className={s.container}>
         <Spinner
           type="Oval"
-          color="#00BFFF"
+          color="#00BBFF"
           height={150}
           width={150}
           arialLabel="loading-indicator"
