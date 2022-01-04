@@ -7,7 +7,7 @@ function MoviesList({ movies }) {
   const location = useLocation();
   return (
     movies && (
-      <ul>
+      <ul className={s.list}>
         {movies.map(movie => (
           <li key={movie.id} className={s.item}>
             <Link
@@ -17,6 +17,10 @@ function MoviesList({ movies }) {
               }}
               className={s.link}
             >
+              <img
+                src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
+                alt=""
+              />
               {movie.title}
             </Link>
           </li>
