@@ -17,11 +17,13 @@ function MoviesList({ movies }) {
               }}
               className={s.link}
             >
-              <img
-                src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
-                alt=""
-              />
-              {movie.title}
+              <div>
+                <img
+                  src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
+                  alt=""
+                />
+                {movie.title}
+              </div>
             </Link>
           </li>
         ))}
