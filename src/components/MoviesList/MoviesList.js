@@ -19,10 +19,11 @@ function MoviesList({ movies }) {
             >
               <div>
                 <img
+                  className={s.img}
                   src={`https://www.themoviedb.org/t/p/w500${movie.poster_path}`}
                   alt=""
                 />
-                {movie.title}
+                <h3 className={s.title}>{movie.title}</h3>
               </div>
             </Link>
           </li>
