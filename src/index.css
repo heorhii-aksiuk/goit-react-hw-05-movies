@@ -47,11 +47,6 @@ a {
   text-decoration: none;
 }
 
-a:focus,
-a:hover {
-  color: var(--accent-color);
-}
-
 body {
   font-family: var(--main-font);
   color: var(--main-text-color);
