@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from './components/Loader/Loader';
 import AppBar from './components/AppBar/AppBar';
-import MovieCard from './components/MovieCard/MovieCard';
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "HomePage" */),
 );
@@ -32,9 +31,7 @@ function App() {
           </Route>
 
           <Route path="/movies/:movieId">
-            <MovieDetailsPage>
-              <MovieCard />
-            </MovieDetailsPage>
+            <MovieDetailsPage />
           </Route>
 
           <Route>
