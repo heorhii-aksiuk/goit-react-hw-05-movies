@@ -1,45 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import {
-  NavLink,
-  useRouteMatch,
-  Route,
-  useHistory,
-  useLocation,
-} from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useRouteMatch, Route } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import Cast from '../../components/Cast/Cast';
 import Reviews from '../../components/Reviews/Reviews';
-import fetchAPI from '../../services/fetchAPI';
-import { IDLE, PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
+import { PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
 
-function MovieCard() {
-  const [status, setStatus] = useState(IDLE);
-  const [error, setError] = useState(null);
-  const { movieId } = useParams();
+function MovieCard({ movieId, movie, status, error }) {
   const { url } = useRouteMatch();
-  const history = useHistory();
-  const location = useLocation();
-  const [movie, setMovie] = useState(null);
-  const [prevLocation] = useState(location?.state?.from);
-
-  useEffect(() => {
-    setStatus(PENDING);
-    fetchAPI(`/movie/${movieId}`)
-      .then(response => {
-        if (!response) throw Error('Oops...something went wrong :(');
-        setMovie(response);
-        setStatus(RESOLVED);
-      })
-      .catch(error => {
-        setError(error);
-        setStatus(REJECTED);
-      });
-  }, [movieId]);
-
-  function goBack() {
-    history.push(prevLocation ?? '/');
-  }
 
   function getMovieRuntime() {
     if (movie) {
@@ -50,10 +17,7 @@ function MovieCard() {
   }
 
   return (
-    <div>
-      <button onClick={goBack} type="button">
-        Go back
-      </button>
+    <>
       {status === RESOLVED && (
         <>
           <div>
@@ -102,7 +66,7 @@ function MovieCard() {
       )}
       {status === PENDING && <Loader />}
       {status === REJECTED && <p>{error.message}</p>}
-    </div>
+    </>
   );
 }
 
