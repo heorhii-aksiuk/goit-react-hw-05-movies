@@ -1,14 +1,25 @@
 .section {
   width: 740px;
   padding: 20px;
+  padding-top: 10px;
   margin: 0 auto;
   margin-bottom: 20px;
   height: max-content;
 }
 
+.titleWrapper {
+  margin: 0 auto;
+  width: 450px;
+  /* height: 23px; */
+  margin-bottom: 10px;
+  background-color: var(--title-wrapper-color);
+  border-radius: 3px;
+}
+
 .title {
-  font-size: 19px;
+  padding: 5px;
+  font-size: 17px;
   font-weight: 500;
-  margin-bottom: 20px;
+  color: var(--second-text-color);
   text-align: center;
 }
