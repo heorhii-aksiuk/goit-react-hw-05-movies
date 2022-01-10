@@ -7,13 +7,13 @@ import Section from '../components/Section/Section';
 import MovieCard from '../components/MovieCard/MovieCard';
 
 function MovieDetailsPage() {
-  const [status, setStatus] = useState(IDLE);
-  const [error, setError] = useState(null);
   const { movieId } = useParams();
   const history = useHistory();
   const location = useLocation();
-  const [movie, setMovie] = useState(null);
   const [prevLocation] = useState(location?.state?.from);
+  const [status, setStatus] = useState(IDLE);
+  const [error, setError] = useState(null);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     setStatus(PENDING);

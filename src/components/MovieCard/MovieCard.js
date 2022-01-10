@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink, useRouteMatch, Route } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import Cast from '../../components/Cast/Cast';
@@ -7,6 +8,7 @@ import { PENDING, RESOLVED, REJECTED } from '../../services/stateMachine';
 
 function MovieCard({ movieId, movie, status, error }) {
   const { url } = useRouteMatch();
+  console.log(movie);
 
   function getMovieRuntime() {
     if (movie) {
@@ -69,5 +71,27 @@ function MovieCard({ movieId, movie, status, error }) {
     </>
   );
 }
+
+MovieCard.propTypes = {
+  movieId: PropTypes.string.isRequired,
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    vote_count: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+    runtime: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      }),
+    ),
+  }),
+  status: PropTypes.string.isRequired,
+  error: PropTypes.object,
+};
 
 export default MovieCard;
